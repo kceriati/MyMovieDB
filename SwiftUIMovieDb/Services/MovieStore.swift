@@ -13,13 +13,21 @@ class MovieStore: MovieService {
     static let shared = MovieStore()
     private init() {}
     
-    private let apiKey = "APIKEY"
+    private let apiKey = "586c2e448e44a10b63d805a34d72ec80"
     private let baseAPIURL = "https://api.themoviedb.org/3"
     private let urlSession = URLSession.shared
     private let jsonDecoder = Utils.jsonDecoder
     
     func fetchMovies(from endpoint: MovieListEndpoint, completion: @escaping (Result<MovieResponse, MovieError>) -> ()) {
         guard let url = URL(string: "\(baseAPIURL)/movie/\(endpoint.rawValue)") else {
+            completion(.failure(.invalidEndpoint))
+            return
+        }
+        self.loadURLAndDecode(url: url, completion: completion)
+    }
+    
+    func fetchCategories(from endpoint: CategorieListEndpoint, completion: @escaping (Result<CategorieResponse, MovieError>) -> ()) {
+        guard let url = URL(string: "\(baseAPIURL)\(endpoint.rawValue)") else {
             completion(.failure(.invalidEndpoint))
             return
         }

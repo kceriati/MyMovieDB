@@ -1,0 +1,19 @@
+
+Showing All Issues
+
+Prepare build
+note: Using new build system
+note: Building targets in parallel
+note: Planning build
+note: Using build description from memory
+
+
+
+Build target SwiftUIMovieDbMac of project SwiftUIMovieDb with configuration Debug
+error: No signing certificate "Mac Development" found: No "Mac Development" signing certificate matching team ID "5C2XD9H2JS" with a private key was found. (in target 'SwiftUIMovieDbMac' from project 'SwiftUIMovieDb')
+error: There are no accounts registered with Xcode. Add your developer account to Xcode (in target 'SwiftUIMovieDbMac' from project 'SwiftUIMovieDb')
+
+
+
+
+Build failed    13/06/2021 00:43    0.1 seconds

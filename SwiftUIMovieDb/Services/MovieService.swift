@@ -13,6 +13,7 @@ protocol MovieService {
     func fetchMovies(from endpoint: MovieListEndpoint, completion: @escaping (Result<MovieResponse, MovieError>) -> ())
     func fetchMovie(id: Int, completion: @escaping (Result<Movie, MovieError>) -> ())
     func searchMovie(query: String, completion: @escaping (Result<MovieResponse, MovieError>) -> ())
+    func fetchCategories(from endpoint: CategorieListEndpoint, completion: @escaping (Result<CategorieResponse, MovieError>)-> ())
 }
 
 enum MovieListEndpoint: String, CaseIterable, Identifiable {
@@ -30,6 +31,19 @@ enum MovieListEndpoint: String, CaseIterable, Identifiable {
             case .upcoming: return "Upcoming"
             case .topRated: return "Top Rated"
             case .popular: return "Popular"
+        }
+    }
+}
+
+enum CategorieListEndpoint: String, CaseIterable, Identifiable {
+    
+    var id: String { rawValue }
+    
+    case categorieExist = "Categorie"
+    
+    var description: String {
+        switch self {
+            case .categorieExist: return "Categorie"
         }
     }
 }

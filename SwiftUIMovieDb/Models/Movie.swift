@@ -13,6 +13,11 @@ struct MovieResponse: Decodable {
     let results: [Movie]
 }
 
+struct CategorieResponse: Decodable {
+    
+    let results: [MovieGenre]
+}
+
 
 struct Movie: Decodable, Identifiable, Hashable {
     static func == (lhs: Movie, rhs: Movie) -> Bool {
